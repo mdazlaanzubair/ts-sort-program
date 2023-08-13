@@ -1,40 +1,79 @@
-# Typescript Test
+# Program Explanation - Sorting and Saving Data
 
-## Objective:
-Create a TypeScript program that reads a list of numbers from a file, sorts the numbers in descending order, and writes the sorted list of numbers to a new file. You should use Object-Oriented Programming principles and Data Structures in your code.
+## Introduction
 
-## Requirements:
-- The program should read a list of numbers from a file called "input.txt".
-- The numbers in the file will be separated by a comma and a space (", ").
-- The program should sort the numbers in descending order.
-- The program should write the sorted list of numbers to a new file called "output.txt".
-- You should use TypeScript to write your code.
-- You should use Git to version control your code.
-- The program should handle errors gracefully. If the input file does not exist or cannot be read, the program should display an error message and exit. If the output file cannot be written, the program should display an error message and exit.
-- The program should use an efficient sorting algorithm with a worst-case time complexity of O(n log n).
-- The program should use a data structure to store the list of numbers.
-- The program should use Object-Oriented Programming principles, including encapsulation, inheritance, and polymorphism.
-- The program should have a clear separation of concerns between the input/output code, the sorting code, and the data structure code.
-- The program should be well-documented with comments and follow a consistent coding style.
+This document provides an in-depth and step-by-step explanation of the JavaScript program that reads user input, sorts numbers from a file using the merge sort algorithm, appends metadata, and saves the sorted data in a JSON file. The tasks perform by this program are as follows:
 
-## Bonus Requirements:
-- Add a feature that allows the user to specify the input and output file names on the command line.
-- Add a feature that allows the user to choose between ascending or descending order for the sorting.
-- Add a feature that allows the user to specify the sorting algorithm to use on the command line.
-- Add a feature that allows the user to choose between different data structures for storing the list of numbers.
-- Add a feature that allows the user to choose the delimiter used in the input file.
-- Write a performance test for your code that measures the time it takes to sort a large list of numbers (e.g., 1 million numbers).
+1. **Collects** user input.
+2. **Reads** comma-separated numbers from a file.
+3. **Sorts** the numbers using the merge sort algorithm.
+4. **Appends** metadata to the user input.
+5. **Saves** the sorted data and metadata in a JSON file.
 
-## Instructions:
-- Fork and clone this repo.
-- Run `yarn` to install dependencies.
-- Run `yarn start` to run the index.ts file.
+## Step-by-Step Explanation
 
+### Step 1: Imports
 
-## Notes:
-- You are allowed to use any resources you like during the test, including documentation and online tutorials.
-- You should not copy and paste code from external sources without proper attribution.
-- You will be evaluated based on the quality of your code, your ability to use OOP principles and Data Structures, and your ability to solve problems and learn new concepts.
-- If you have any questions or issues during the test, please ask the recruiter for assistance.
+The program starts by importing essential Node.js modules and classes that are used throughout the script for handling file operations:
 
-Good luck!
+- `path`: For handling file paths.
+- `process`: For accessing the current working directory.
+- `readline`: For asynchronously reading user input.
+- `fs`: For file system operations, including reading and writing files.
+
+### Step 2: UserInput Class
+
+The **`UserInput`** class is responsible for handling user input. It uses the `readline` module to prompt the user for various inputs:
+
+- **Name:** The user's name, which should be less than or equal to 10 characters.
+- **Input _`.txt`_ filename:** The name of the file containing comma-separated numbers.
+- **Output filename _(without extension)_:** The name to be used for the JSON output file.
+- **Sorting order:** Whether the user wants to sort the data in ascending or descending order.
+
+### Step 3: MergeSort Class
+
+The **`MergeSort`** class implements the merge sort algorithm. It includes methods for:
+
+- **`splitter`** Recursively divides an array into smaller sub-arrays for sorting.
+- **`ascendingMergeNSort`** Merging two arrays in ascending order.
+- **`descendingMergeNSort`** Merging two arrays in descending order.
+
+### Step 4: FileSaver Class
+
+The **`FileSaver`** class handles saving data to a JSON file. It checks if the output file already exists, reads existing data if available, appends new data, and then writes the combined data back to the file.
+
+- **Reads** existing data _(if available)_ from the file.
+- **Appends** new data to the existing `JSON` array.
+- **Writes** the updated `JSON` content back to the file.
+
+### Step 5: FileReader Class
+
+The **`FileReader`** class reads numbers from a `.txt` file. It performs the following tasks:
+
+- **Reads** the content of the file using the `readFileSync` method.
+- **Converts** the `comma-separated` values into an array of **valid numbers**, filtering out any `non-numeric` values.
+
+### Step 6: getCustomDate Function
+
+The **`getCustomDate`** function generates a formatted date and time string in the "DD-MM-YYYY:HH-MM-SS" format. This function is used to timestamp the data.
+
+### Step 7: Main Function
+
+The **`main`** function is the program's entry point. It initialize the entire process:
+
+- **Collects** user input using the **`UserInput`** class.
+- **Constructs** file paths using the **`path`** module.
+- **Reads** and parses numbers from the input file using the **`FileReader`** class.
+- **Sorts** the numbers using the **`MergeSort`** class based on user preference.
+- **Appends** metadata such as **`timestamp`** and **`unique ID`** to the user input.
+- **Constructs** a file path for saving results in a **`JSON file`**.
+- **Saves** user input and results using the **`FileSaver`** class.
+- **Returns** a message indicating program **`closure`**.
+
+### Step 8: Invocation
+
+The `main` function is invoked at the end of the script, initiating the program's execution.
+
+## Conclusion
+
+This JavaScript program showcases a well-structured methodology for efficiently reading, sorting, and storing data. It achieves this by intelligently dividing responsibilities using classes and functions, fostering a distinct separation of roles. By employing modular design principles, it ensures that each step in the process is distinctly clarified and compartmentalized.
