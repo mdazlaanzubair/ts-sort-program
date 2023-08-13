@@ -1,0 +1,50 @@
+[
+  {
+    "name": "M. Azlaan",
+    "fileName": "input.txt",
+    "ascending": true,
+    "outputFileName": "results",
+    "originalArray": [
+      349,
+      573,
+      189,
+      756,
+      473,
+      774
+    ],
+    "sortedArray": [
+      189,
+      349,
+      473,
+      573,
+      756,
+      774
+    ],
+    "u_id": 1691961432769,
+    "timestamp": "14-08-2023:02-17-12"
+  },
+  {
+    "name": "M. Zubair",
+    "fileName": "input.txt",
+    "ascending": false,
+    "outputFileName": "results",
+    "originalArray": [
+      349,
+      573,
+      189,
+      756,
+      473,
+      774
+    ],
+    "sortedArray": [
+      473,
+      756,
+      774,
+      189,
+      349,
+      573
+    ],
+    "u_id": 1691961447406,
+    "timestamp": "14-08-2023:02-17-27"
+  }
+]
