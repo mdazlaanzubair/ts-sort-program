@@ -36,7 +36,6 @@ async function main() {
   // adding "timestamp" & "u_id" (unique ID) for keep track/log
   userInput.u_id = Date.now();
 
-  
   userInput.timestamp = getCustomDate();
 
   // saving results to a file by providing path and data
